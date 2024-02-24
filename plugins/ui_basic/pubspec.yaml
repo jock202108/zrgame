@@ -10,9 +10,20 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_web_plugins:
-    sdk: flutter
-  plugin_platform_interface: ^2.0.2
+  shared_preferences: ^2.2.2
+  synchronized: ^3.1.0+1
+  path_provider: ^2.1.2
+  # https://github.com/a14n/dart-decimal
+  rational: ">=2.0.0 <5.0.0"
+  # https://github.com/a14n/dart-decimal
+  decimal: ">=2.0.0 <5.0.0"
+  # https://github.com/dart-lang/crypto
+  crypto: ">=3.0.0 <5.0.0"
+  # https://github.com/dart-lang/convert
+  convert: ">=3.0.0 <5.0.0"
+
+
+
 
 dev_dependencies:
   flutter_test:

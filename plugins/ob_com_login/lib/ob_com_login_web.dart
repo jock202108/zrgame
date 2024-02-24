@@ -6,15 +6,15 @@ import 'dart:html' as html show window;
 
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 
-import 'ui_basic_platform_interface.dart';
+import 'ob_com_login_platform_interface.dart';
 
-/// A web implementation of the UiBasicPlatform of the UiBasic plugin.
-class UiBasicWeb extends UiBasicPlatform {
-  /// Constructs a UiBasicWeb
-  UiBasicWeb();
+/// A web implementation of the ObComLoginPlatform of the ObComLogin plugin.
+class ObComLoginWeb extends ObComLoginPlatform {
+  /// Constructs a ObComLoginWeb
+  ObComLoginWeb();
 
   static void registerWith(Registrar registrar) {
-    UiBasicPlatform.instance = UiBasicWeb();
+    ObComLoginPlatform.instance = ObComLoginWeb();
   }
 
   /// Returns a [String] containing the version of the platform.

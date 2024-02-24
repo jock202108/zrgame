@@ -1,0 +1,35 @@
+PODS:
+  - basic_network (0.0.1):
+    - Flutter
+  - Flutter (1.0.0)
+  - shared_preferences_foundation (0.0.1):
+    - Flutter
+    - FlutterMacOS
+  - ui_basic (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - basic_network (from `.symlinks/plugins/basic_network/ios`)
+  - Flutter (from `Flutter`)
+  - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
+  - ui_basic (from `.symlinks/plugins/ui_basic/ios`)
+
+EXTERNAL SOURCES:
+  basic_network:
+    :path: ".symlinks/plugins/basic_network/ios"
+  Flutter:
+    :path: Flutter
+  shared_preferences_foundation:
+    :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
+  ui_basic:
+    :path: ".symlinks/plugins/ui_basic/ios"
+
+SPEC CHECKSUMS:
+  basic_network: fd5855ebc7b68321c14701b86cdd3d0fb6584e34
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  shared_preferences_foundation: b4c3b4cddf1c21f02770737f147a3f5da9d39695
+  ui_basic: 6f46b7266ee13b02a5bfd7b14e06dd5f9762036d
+
+PODFILE CHECKSUM: 819463e6a0290f5a72f145ba7cde16e8b6ef0796
+
+COCOAPODS: 1.14.3

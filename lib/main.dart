@@ -1,10 +1,39 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:ui_basic/initializer/app_initializers.dart';
+import 'package:ui_basic/utils/sp_util.dart';
 
 void main() {
-  runApp(const MyApp());
+  WidgetsFlutterBinding.ensureInitialized();
+  setupApp();
 }
 
+Future<void> setupApp() async {
+  //兼容android  SystemUiOverlayStyle 虚拟按键处理
+  if (Platform.isAndroid) {
+    SystemUiOverlayStyle systemUiOverlayStyle = const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      //状态栏 背景透明
+      //虚拟按键背景色
+      systemNavigationBarIconBrightness: Brightness.light,
+      //虚拟按键图标色
+      statusBarIconBrightness: Brightness.light,
+      statusBarBrightness: Brightness.light,
+    );
+    SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
+  } else {
+    //ios
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
+  }
+  SystemChrome.setPreferredOrientations(
+    [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown],
+  );
 
+  await AppInitializers.getInstance().init();
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -59,7 +88,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
-  void _incrementCounter() {
+  Future<void> _incrementCounter() async {
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below

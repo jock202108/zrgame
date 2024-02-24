@@ -1,13 +1,13 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 
-import 'ui_basic_platform_interface.dart';
+import 'ob_com_login_platform_interface.dart';
 
-/// An implementation of [UiBasicPlatform] that uses method channels.
-class MethodChannelUiBasic extends UiBasicPlatform {
+/// An implementation of [ObComLoginPlatform] that uses method channels.
+class MethodChannelObComLogin extends ObComLoginPlatform {
   /// The method channel used to interact with the native platform.
   @visibleForTesting
-  final methodChannel = const MethodChannel('ui_basic');
+  final methodChannel = const MethodChannel('ob_com_login');
 
   @override
   Future<String?> getPlatformVersion() async {
