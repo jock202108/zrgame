@@ -5,7 +5,7 @@ import 'package:ui_basic/ui_basic.dart';
 import 'app_initializer.dart';
 
 class AppInitializers {
-  static late AppInitializers _singleton;
+  static  AppInitializers? _singleton;
   static final Lock _lock = Lock();
   List<AppInitializer> initializers = [
     SpInitializer(),
@@ -24,7 +24,7 @@ class AppInitializers {
         }
       });
     }
-    return _singleton;
+    return _singleton!;
   }
 
   Future init({List<AppInitializer>? newInitializers}) async {
