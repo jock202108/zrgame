@@ -2,11 +2,15 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ui_basic/initializer/app_initializers.dart';
 import 'package:ui_basic/utils/sp_util.dart';
+import 'package:ui_basic/widget/common_app_bar.dart';
+import 'package:ui_basic/generated/l10n.dart';
 import 'package:zrgame/theme/provider.dart';
-
+import 'generated/l10n.dart';
+import 'initializer/local_initializer.dart';
 import 'theme/app_themes.dart';
 import 'my_observer.dart';
 
@@ -14,6 +18,11 @@ void main() {
   WidgetsFlutterBinding.ensureInitialized();
   setupApp();
 }
+
+
+// 定义一个StateProvider来管理Locale状态
+final localeProvider = StateProvider<Locale>((ref) => const Locale('zh', 'CN'));
+
 
 Future<void> setupApp() async {
   //兼容android  SystemUiOverlayStyle 虚拟按键处理
@@ -36,7 +45,9 @@ Future<void> setupApp() async {
     [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown],
   );
 
-  await AppInitializers.getInstance().init();
+  await AppInitializers.getInstance().init(newInitializers: [
+    LocalInitializer(),
+  ]);
 
   runApp(
      ProviderScope(
@@ -68,11 +79,24 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context,WidgetRef ref) {
     final themeMode = ref.watch(themeStateProvider);
+    final locale = ref.watch(localeProvider);
     return  _EagerInitialization(
       child: MaterialApp(
+        localizationsDelegates: const [
+          S.delegate,
+          UiBasicS.delegate,
+          ///为 Material 组件库提供本地化的字符串和其他值
+          GlobalMaterialLocalizations.delegate,
+          ///为 Cupertino 组件库提供本地化的字符串和其他值
+          GlobalWidgetsLocalizations.delegate,
+          ///定义了默认的文本排列方向，由左到右或者由右到左
+          GlobalCupertinoLocalizations.delegate,
+        ],
+        supportedLocales:S.delegate.supportedLocales,
         themeMode: themeMode,
         theme: AppThemes.lightTheme,
         darkTheme: AppThemes.darkTheme,
+        locale: locale,
         home: const HomePage(),
       ),
     );
@@ -89,7 +113,7 @@ class HomePage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Dark Mode Demo'),
+        title: Text(S.of(context).title),
         actions: [
           IconButton(
             icon: const Icon(Icons.lightbulb_outline),
@@ -102,13 +126,22 @@ class HomePage extends ConsumerWidget {
         ],
       ),
       body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            ref.read(themeStateProvider.notifier).toggleTheme(
-              themeMode == ThemeMode.dark ? ThemeMode.light : ThemeMode.dark,
-            );
-          },
-          child: const Text('Toggle Theme'),
+        child: Column(
+          children: [
+            CommonTitleBar(),
+            ElevatedButton(
+              onPressed: () {
+                ref.read(localeProvider.notifier).state = const Locale('en', '');
+              },
+              child: const Text('Toggle Theme'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                ref.read(localeProvider.notifier).state = const Locale('zh',"CN");
+              },
+              child: const Text('Toggle Theme'),
+            )
+          ],
         ),
       ),
     );
