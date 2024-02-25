@@ -8,6 +8,7 @@ import 'package:ui_basic/initializer/app_initializers.dart';
 import 'package:ui_basic/utils/sp_util.dart';
 import 'package:ui_basic/widget/common_app_bar.dart';
 import 'package:ui_basic/generated/l10n.dart';
+import 'package:zrgame/router/router.dart';
 import 'package:zrgame/theme/provider.dart';
 import 'generated/l10n.dart';
 import 'initializer/local_initializer.dart';
@@ -81,7 +82,8 @@ class MyApp extends ConsumerWidget {
     final themeMode = ref.watch(themeStateProvider);
     final locale = ref.watch(localeProvider);
     return  _EagerInitialization(
-      child: MaterialApp(
+      child: MaterialApp.router(
+        routerConfig: router,
         localizationsDelegates: const [
           S.delegate,
           UiBasicS.delegate,
@@ -97,7 +99,6 @@ class MyApp extends ConsumerWidget {
         theme: AppThemes.lightTheme,
         darkTheme: AppThemes.darkTheme,
         locale: locale,
-        home: const HomePage(),
       ),
     );
   }
