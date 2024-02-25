@@ -60,6 +60,7 @@ FlutterAssetsGenerator:https://plugins.jetbrains.com/plugin/15427-flutterassetsg
            build_runner: ^2.1.11
      (2)创建对象
      (3)执行命令 flutter pub run build_runner build ，就可以生成解析 JSON 的代码。
+     (4)如果觉得命令行不方便也可以使用插件:https://blog.csdn.net/jdsjlzx/article/details/126145817 
 
 
 
