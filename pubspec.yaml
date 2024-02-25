@@ -47,6 +47,7 @@ dependencies:
   flutter_riverpod: ^2.4.10
   riverpod_annotation: ^2.3.4
   cached_network_image: ^3.3.1
+  json_annotation: ^4.8.1
 
 
 dev_dependencies:
@@ -57,6 +58,7 @@ dev_dependencies:
   custom_lint:
   riverpod_generator: ^2.3.11
   riverpod_lint: ^2.3.9
+  json_serializable: ^6.7.1
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

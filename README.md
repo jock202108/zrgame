@@ -51,6 +51,16 @@ FlutterAssetsGenerator:https://plugins.jetbrains.com/plugin/15427-flutterassetsg
     (4).对于复杂的页面请多使用 select 进行过滤,缩小刷新范围,提高性能
         相关文档：https://riverpod.dev/zh-Hans/docs/advanced/select
 
+8.关于json实例化
+    (1)添加依赖
+         dependencies:
+           json_annotation: ^4.8.1
+         dev_dependencies:
+           json_serializable: ^6.7.1
+           build_runner: ^2.1.11
+     (2)创建对象
+     (3)执行命令 flutter pub run build_runner build ，就可以生成解析 JSON 的代码。
+
 
 
 
