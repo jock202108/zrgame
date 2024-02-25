@@ -1,8 +1,2 @@
-
-import 'basic_network_platform_interface.dart';
-
-class BasicNetwork {
-  Future<String?> getPlatformVersion() {
-    return BasicNetworkPlatform.instance.getPlatformVersion();
-  }
-}
+export 'easy_response.dart';
+export 'network_util.dart';
