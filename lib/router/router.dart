@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ob_com_login/router/login_route.dart';
 
 import '../pages/home_route.dart';
 
@@ -18,6 +19,7 @@ final router = GoRouter(
   ],
   routes: [
     ...HomeRoute().getRoutes(),
+    ...LoginRoute().getRoutes(),
   ],
 );
 

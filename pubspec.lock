@@ -660,6 +660,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.5"
+  ob_com_login:
+    dependency: "direct main"
+    description:
+      path: "plugins/ob_com_login"
+      relative: true
+    source: path
+    version: "0.0.1"
   octo_image:
     dependency: transitive
     description:

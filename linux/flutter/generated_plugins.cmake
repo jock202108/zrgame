@@ -5,6 +5,7 @@
 list(APPEND FLUTTER_PLUGIN_LIST
   basic_network
   file_selector_linux
+  ob_com_login
   ui_basic
   url_launcher_linux
 )

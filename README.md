@@ -41,6 +41,22 @@ FlutterAssetsGenerator:https://plugins.jetbrains.com/plugin/15427-flutterassetsg
         context.pop() 
 
 
+7.关于状态管理RiverPod:
+    (1).推荐阅读 https://riverpod.dev/zh-Hans/docs/introduction/getting_started
+    (2).生成代码命令 :dart run build_runner watch
+    (3).请在 onDispose 回调中进行资源释放,防止内存泄露
+      ref.onDispose(() {
+     ///释放资源
+      });
+    (4).对于复杂的页面请多使用 select 进行过滤,缩小刷新范围,提高性能
+        相关文档：https://riverpod.dev/zh-Hans/docs/advanced/select
+
+
+
+
+
+
+
         
 
 
