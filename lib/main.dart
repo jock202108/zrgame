@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ui_basic/initializer/app_initializers.dart';
+import 'package:ui_basic/ui_basic.dart';
 import 'package:ui_basic/utils/sp_util.dart';
 import 'package:ui_basic/widget/common_app_bar.dart';
 import 'package:ui_basic/generated/l10n.dart';
@@ -106,12 +107,12 @@ class MyApp extends ConsumerWidget {
 
 
 class HomePage extends ConsumerWidget {
-  const HomePage({Key? key}) : super(key: key);
+   HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final themeMode = ref.watch(themeStateProvider);
 
+    final themeMode = ref.watch(themeStateProvider);
     return Scaffold(
       appBar: AppBar(
         title: Text(S.of(context).title),

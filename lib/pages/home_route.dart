@@ -17,7 +17,9 @@ class HomeRoute implements RouteProvider {
       ),
       GoRoute(
         path: home,
-        builder: (context, state) => const HomePage(),
+        builder: (context, state)  {
+          return HomePage();
+        },
       ),
 
     ];

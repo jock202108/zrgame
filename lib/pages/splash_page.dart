@@ -1,12 +1,10 @@
-
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_basic/ui_basic.dart';
 
 import 'home_route.dart';
 
-class SplashPage extends StatelessWidget{
+class SplashPage extends StatelessWidget {
   const SplashPage({super.key});
 
   @override
@@ -17,16 +15,24 @@ class SplashPage extends StatelessWidget{
         child: Column(
           children: [
             Text("splash"),
+            ElevatedButton(
+                onPressed: () {
 
-            ElevatedButton(onPressed: (){
-              context.push(HomeRoute.home);
+                  context.push(
+                    Uri(
+                      path: HomeRoute.home,
+                      queryParameters: {'id': '10'},
+                    ).toString(),
+                  );
 
-            }, child: Text("跳转到首页"))
-
+                  context.push(
+                    HomeRoute.home,
+                  );
+                },
+                child: Text("跳转到首页"))
           ],
         ),
       ),
     );
   }
-
 }
