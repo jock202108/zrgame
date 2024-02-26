@@ -1,7 +1,7 @@
 # zrgame
 1.flutter 版本  3.19.1
 
-2.国际化：推荐阅读:http://www.guijs.cn/vue/8759.html 
+2.国际化：推荐阅读:http://www.guijs.cn/vue/8759.html   
        (1)安装 Flutter Intl 插件，检查到arb文件变化会自动生成dart文件
        (2)切换语言 ref.read(localeProvider.notifier).state = const Locale('zh',"CN");
        (3)关于占位符 
